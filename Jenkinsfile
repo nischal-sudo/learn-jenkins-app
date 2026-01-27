@@ -18,6 +18,7 @@ pipeline{
                     ls -la
                     npm install serve
                     npx serve -s build &
+                    docker run --name nodeapp -p 4000:3000 node:18-alpine
                 '''
             }
         }
