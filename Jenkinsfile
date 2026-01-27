@@ -2,12 +2,20 @@ pipeline{
     agent any
     stages{
         stage('Deploy'){
+            agent{
+                docker{
+                    image "node:18-alpine"
+                    reuseNode true 
+                }
+            }
             steps{
                 sh """
-                mkdir -p test
-                touch test/container.txt
-                echo "Hello from Jenkins" >> test/container.txt
-                cat test/container.txt
+                node --version
+                npm --version
+                rm test
+                npm ci
+                npm run build
+                ls -la
                 """
             }
         }
