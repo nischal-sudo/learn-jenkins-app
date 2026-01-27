@@ -1,10 +1,15 @@
 pipeline{
     agent any
     stages{
-        stage('Test'){
+        stage('Deploy'){
             steps{
-                echo 'Hello from Jenkins'
+                sh """
+                mkdir -p test
+                touch test/container.txt
+                echo "Hello from Jenkins" >> test/container.txt
+                cat test/container.txt
             }
         }
     }
 }
+
