@@ -8,6 +8,7 @@ pipeline{
                 touch test/container.txt
                 echo "Hello from Jenkins" >> test/container.txt
                 cat test/container.txt
+                """
             }
         }
     }
