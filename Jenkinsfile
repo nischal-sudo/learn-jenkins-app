@@ -19,11 +19,11 @@ pipeline{
                             npm test
                             '''
                     }
-                    post {
-                        always {
-                            junit 'jest-results/junit.xml'
-                        }
-                    }
+                    // post {
+                    //     always {
+                    //         junit 'jest-results/junit.xml'
+                    //     }
+                    // }
                 }
                 stage('E2E') {
                     agent {
@@ -40,7 +40,6 @@ pipeline{
                             npx playwright test --reporter=html
                         '''
                     }
-
                 }
             }
         }
