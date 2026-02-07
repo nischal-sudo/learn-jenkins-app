@@ -15,7 +15,7 @@ pipeline{
                     steps {
                         sh  '''
                             echo 'hello............'
-                            apt update
+                            sudo apt update
                             npm test
                             '''
                     }
